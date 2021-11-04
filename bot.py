@@ -128,7 +128,7 @@ async def level(ctx):
 Ранг: **Junior** (2/4)
 
 Следующий ранг: **Senior**
-Цена повышения: **1000** :wrench:
+Цена повышения: **750** :wrench:
 
 Для повышения напиши ;upgrade code''')
 
@@ -137,7 +137,7 @@ async def level(ctx):
 Ранг: **Senior** (3/4)
 
 Следующий ранг: **Major**
-Цена повышения: **2500** :wrench:
+Цена повышения: **1250** :wrench:
 
 Для повышения напиши ;upgrade code''')
 
@@ -160,8 +160,8 @@ async def level(ctx):
         await ctx.send('''  Должность: **Builder**
 Ранг: **Junior** (2/4)
 
-Следующий ранг: **Junior**
-Цена повышения: **1000** :bricks:
+Следующий ранг: **Senior**
+Цена повышения: **750** :bricks:
 
 Для повышения напиши ;upgrade build''')
 
@@ -170,7 +170,7 @@ async def level(ctx):
 Ранг: **Senior** (3/4)
 
 Следующий ранг: **Major**
-Цена повышения: **2500** :bricks:
+Цена повышения: **1250** :bricks:
 
 Для повышения напиши ;upgrade build''')
 
@@ -210,26 +210,26 @@ Minor Coder ->->-> **Junior Coder**''')
                     elif money < 500:
                         await ctx.send(f'Не хватает {500 - money} :wrench:')
                 elif juniorcoder in amember.roles:
-                    if money >= 1000:
-                        money -= 1000
+                    if money >= 750:
+                        money -= 750
                         await amember.add_roles(seniorcoder)
                         await amember.remove_roles(juniorcoder)
                         await ctx.send('''Твой ранг успешно улучшен!
 Junior Coder ->->-> **Senior Coder**''')
                         cursor.execute('UPDATE users SET codemoney=? WHERE id=?',(money,member))
-                    elif money < 1000:
-                        await ctx.send(f'Не хватает {1000 - money} :wrench:')
+                    elif money < 750:
+                        await ctx.send(f'Не хватает {750 - money} :wrench:')
                 elif seniorcoder in amember.roles:
-                    if money >= 2500:
-                        money -= 2500
+                    if money >= 1250:
+                        money -= 1250
                         await amember.add_roles(majorcoder)
                         await amember.remove_roles(seniorcoder)
                         await ctx.send('''Твой ранг успешно улучшен!
 Senior Coder ->->-> **MAJOR CODER**
 Ты достиг наилучшего ранга в данной должности, поздравляю!''')
                         cursor.execute('UPDATE users SET codemoney=? WHERE id=?',(money,member))
-                    elif money < 2500:
-                        await ctx.send(f'Не хватает {2500 - money} :wrench:')
+                    elif money < 1250:
+                        await ctx.send(f'Не хватает {1250 - money} :wrench:')
                 elif majorcoder in amember.roles:
                     await ctx.send('Ты достиг наилучшего звания, дальше - некуда. Спасибо за работу в команде CreaTeam, продолжай в том же духе! :star_struck:')
                 else:
@@ -250,26 +250,26 @@ Minor Builder ->->-> **Junior Builder**''')
                     elif money < 500:
                         await ctx.send(f'Не хватает {500 - money} :bricks:')
                 elif juniorbuilder in amember.roles:
-                    if money >= 1000:
-                        money -= 1000
+                    if money >= 750:
+                        money -= 750
                         await amember.add_roles(seniorbuilder)
                         await amember.remove_roles(juniorbuilder)
                         await ctx.send('''Твой ранг успешно улучшен!
 Junior Builder ->->-> **Senior Builder**''')
                         cursor.execute('UPDATE users SET buildmoney=? WHERE id=?', (money, member))
-                    elif money < 1000:
-                        await ctx.send(f'Не хватает {1000 - money} :bricks:')
+                    elif money < 750:
+                        await ctx.send(f'Не хватает {750 - money} :bricks:')
                 elif seniorbuilder in amember.roles:
-                    if money >= 2500:
-                        money -= 2500
+                    if money >= 1250:
+                        money -= 1250
                         await amember.add_roles(majorbuilder)
                         await amember.remove_roles(seniorbuilder)
                         await ctx.send('''Твой ранг успешно улучшен!
 Senior Builder ->->-> **MAJOR BUILDER**
 Ты достиг наилучшего ранга в данной должности, поздравляю!''')
                         cursor.execute('UPDATE users SET buildmoney=? WHERE id=?', (money, member))
-                    elif money < 2500:
-                        await ctx.send(f'Не хватает {2500 - money} :bricks:')
+                    elif money < 1250:
+                        await ctx.send(f'Не хватает {1250 - money} :bricks:')
                 elif majorbuilder in amember.roles:
                     await ctx.send(
                         'Ты достиг наилучшего звания, дальше - некуда. Спасибо за работу в команде CreaTeam, продолжай в том же духе! :star_struck:')
